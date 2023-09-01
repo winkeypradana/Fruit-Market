@@ -1,3 +1,15 @@
+
+# Input jumlah buah
+def input_fruit (name, stock, price):
+    while True:
+        n = int(input(f'Input jumlah {name.capitalize()}: '))
+        if n <= stock:
+            price = n * price
+            break
+        else:
+            print (f'Jumlah terlalu banyak. {name.capitalize()} sisa stock {stock}')
+    return price, n
+  
 # Stock buah
 sApel = 20
 sJeruk = 40
@@ -8,31 +20,10 @@ priceApel = 10000
 priceJeruk = 15000
 priceAnggur = 20000
 
-# Input jumlah buah
-while True:
-    nApel = int(input('Input jumlah apel: '))
-    if nApel <=sApel:
-        break
-    else:
-        print(f'Stock apel yang tersedia hanya {sApel}')
-while True:
-    nJeruk = nJeruk = int(input('Input jumlah jeruk: '))
-    if nJeruk <= sJeruk:
-        break
-    else: 
-        print(f'Stock jeruk yang tersedia hanya {sJeruk}')
-while True:
-    nAnggur = int(input('Input jumlah anggur: '))
-    if nAnggur <= sAnggur:
-        break 
-    else:
-        print (f'Stock jeruk yang tersedia hanya {sAnggur}')
-
-
 # Hitung harga per buah
-totalPriceApel = nApel * priceApel
-totalPriceJeruk = nJeruk * priceJeruk
-totalPriceAnggur = nAnggur * priceAnggur
+totalPriceApel, nApel = input_fruit('Apel',sApel,priceApel)
+totalPriceJeruk, nJeruk = input_fruit('Jeruk',sJeruk,priceJeruk)
+totalPriceAnggur, nAnggur = input_fruit('Anggur',sAnggur,priceAnggur)
 
 # Hitung harga total buah
 priceTotal = totalPriceAnggur + totalPriceApel + totalPriceJeruk
